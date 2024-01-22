@@ -27,6 +27,7 @@
   </dependencyManagement>
 
   <dependencies>
+
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
     <dependency>
       <groupId>io.cucumber</groupId>
@@ -46,12 +47,14 @@
       <version>7.15.0</version>
       <scope>test</scope>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>4.16.1</version>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -78,6 +81,7 @@
       <artifactId>lombok</artifactId>
       <version>1.18.22</version>
     </dependency>
+    
   </dependencies>
 
 </project>
