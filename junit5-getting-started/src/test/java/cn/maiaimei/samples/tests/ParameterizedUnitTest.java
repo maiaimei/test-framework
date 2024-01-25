@@ -1,4 +1,4 @@
-package cn.maiaimei.example;
+package cn.maiaimei.samples.tests;
 
 import java.lang.annotation.ElementType;
 import java.util.Optional;
@@ -110,7 +110,7 @@ public class ParameterizedUnitTest {
    * 工厂方法与测试方法不在同一个类中
    * <p>注意 value 值的书写方式，即类名与工厂方法名之间以井号（#）进行了分隔。</p>
    */
-  @MethodSource("cn.maiaimei.example.MethodSourceClass#methodSource4")
+  @MethodSource("cn.maiaimei.samples.MethodSourceClass#methodSource4")
   @ParameterizedTest
   public void testMethodSource4(String username, String password) {
     log.info("username: {}, password: {}", username, password);

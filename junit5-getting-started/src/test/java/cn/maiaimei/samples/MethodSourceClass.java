@@ -1,4 +1,4 @@
-package cn.maiaimei.example;
+package cn.maiaimei.samples;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.params.provider.Arguments;

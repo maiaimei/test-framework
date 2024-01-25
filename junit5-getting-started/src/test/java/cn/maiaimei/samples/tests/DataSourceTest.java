@@ -1,4 +1,4 @@
-package cn.maiaimei.example;
+package cn.maiaimei.samples.tests;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
