@@ -1,5 +1,6 @@
 package cn.maiaimei.example.controller;
 
+import cn.maiaimei.example.model.FileInfo;
 import java.util.List;
 import java.util.UUID;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ public class FileController {
     return "上传成功-" + UUID.randomUUID();
   }
 
-  @PostMapping("/v1/files/upload")
+  @PostMapping("/files/upload")
   public String filesUpload(MultipartFile[] files) {
     for (MultipartFile file : files) {
       log.info("文件名称：{}，大小：{}字节，类型：{}",
@@ -33,13 +34,19 @@ public class FileController {
     return "上传成功-" + UUID.randomUUID();
   }
 
-  @PostMapping("/v2/files/upload")
-  public String filesUpload(List<MultipartFile> files) {
-    for (MultipartFile file : files) {
+  @PostMapping("/files/save")
+  public String filesSave(FileInfo fileInfo, MultipartFile file, List<MultipartFile> files) {
+    log.info("文件信息：{}", fileInfo);
+    log.info("文件名称：{}，大小：{}字节，类型：{}",
+        file.getOriginalFilename(),
+        file.getSize(),
+        file.getContentType()
+    );
+    for (MultipartFile fi : files) {
       log.info("文件名称：{}，大小：{}字节，类型：{}",
-          file.getOriginalFilename(),
-          file.getSize(),
-          file.getContentType()
+          fi.getOriginalFilename(),
+          fi.getSize(),
+          fi.getContentType()
       );
     }
     return "上传成功-" + UUID.randomUUID();

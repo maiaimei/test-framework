@@ -6,9 +6,11 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class User {
+public class FileInfo {
 
   private BigDecimal id;
-  private String username;
-  private String password;
+  private String filename;
+  private String filetype;
+  private Integer filesize;
+  private String filepath;
 }
