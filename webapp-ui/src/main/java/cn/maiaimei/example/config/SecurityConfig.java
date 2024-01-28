@@ -2,7 +2,6 @@ package cn.maiaimei.example.config;
 
 import cn.maiaimei.example.security.MyUserDetailsServiceImpl;
 import cn.maiaimei.example.security.SecurityFilterChainUtils;
-import java.util.UUID;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -31,20 +30,19 @@ public class SecurityConfig {
     return new MyUserDetailsServiceImpl();
   }
 
-  //@Bean
-  public UserDetailsService inMemoryUserDetailsService() {
-    String password = UUID.randomUUID().toString();
-    System.out.println();
-    System.out.println("Using generated security password: " + password);
-    System.out.println();
-    System.out.println(
-        "This generated password is for development use only. Your security configuration must be"
-            + " updated before running your application in production.");
-    System.out.println();
-    UserDetails userDetails = User.withUsername("user")
-        .password(password)
+  @Bean
+  public UserDetailsService inMemoryUserDetailsService(PasswordEncoder passwordEncoder) {
+    UserDetails admin = User.withUsername("admin")
+        .password(passwordEncoder.encode("12345"))
+        .authorities("ROLE_admin", "/dashboard",
+            "/user/list", "/user/get", "/user/insert", "/user/update", "/user/delete",
+            "/user/password/reset", "/user/password/change", "/self/password/change")
         .build();
-    return new InMemoryUserDetailsManager(userDetails);
+    UserDetails user = User.withUsername("user")
+        .password(passwordEncoder.encode("12345"))
+        .authorities("ROLE_user", "/index", "/self/password/change")
+        .build();
+    return new InMemoryUserDetailsManager(user, admin);
   }
 
   @Bean

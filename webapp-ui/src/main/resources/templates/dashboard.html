@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,26 +11,102 @@
   <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item" aria-current="page">Home</li>
-          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-        </ol>
+<div class="container-fluid p-0">
+  <div class="row m-0">
+    <div class="col-sm p-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/dashboard}">后台管理</a>
+        <div class="navbar-nav">
+          <a class="nav-link active" th:href="@{/dashboard}">首页</a>
+          <a class="nav-link" th:href="@{/user/list}">用户管理</a>
+          <a class="nav-link" th:href="@{/role/list}">角色管理</a>
+        </div>
       </nav>
     </div>
-    <div class="col-sm">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item" aria-current="page"><a
-              th:href="@{/update-password}">修改密码</a></li>
-          <li class="breadcrumb-item" aria-current="page"><a th:href="@{/logout}">退出登录</a></li>
-        </ol>
+    <div class="col-sm p-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end">
+        <div class="navbar-nav">
+          <a class="nav-link" href="javascript:void(0)">欢迎您，<span
+              sec:authentication="name"></span></a>
+          <a class="nav-link" href="javascript:void(0)">个人中心</a>
+          <a class="nav-link" th:href="@{/update-password}">修改密码</a>
+          <a class="nav-link" th:href="@{/logout}">退出登录</a>
+        </div>
       </nav>
     </div>
   </div>
 </div>
+<div class="container-fluid pt-5">
+  <blockquote class="blockquote text-center">
+    <h1>Bootstrap</h1>
+    <footer class="blockquote-footer">Sleek, intuitive, and powerful front-end framework for faster
+      and easier web development.
+    </footer>
+  </blockquote>
+</div>
+<div class="container-fluid pt-3">
+  <div class="card-deck mb-3 text-center">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Spring Boot</h5>
+        <h6 class="card-subtitle mb-2 text-muted">3.2.2</h6>
+        <p class="card-text text-left">Spring
+          Boot
+          makes it easy to create stand-alone, production-grade
+          Spring based Applications that you can "just run".
+
+          We take an opinionated view of the Spring platform and third-party libraries so you can
+          get started with minimum fuss. Most Spring Boot applications need minimal Spring
+          configuration.
+
+          If you’re looking for information about a specific version, or instructions about how to
+          upgrade from an earlier release, check out the project release notes section on our
+          wiki.</p>
+      </div>
+      <div class="card-footer"><a class="btn btn-lg btn-primary btn-block"
+                                  href="https://spring.io/projects/spring-boot"
+                                  target="_blank">Get started</a></div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Spring Security</h5>
+        <h6 class="card-subtitle mb-2 text-muted">6.2.0</h6>
+        <p class="card-text text-left">Spring
+          Security is a powerful and highly customizable authentication
+          and access-control framework. It is the de-facto standard for securing Spring-based
+          applications.
+
+          Spring Security is a framework that focuses on providing both authentication and
+          authorization to Java applications. Like all Spring projects, the real power of Spring
+          Security is found in how easily it can be extended to meet custom requirements</p>
+      </div>
+      <div class="card-footer"><a class="btn btn-lg btn-primary btn-block"
+                                  href="https://spring.io/projects/spring-security"
+                                  target="_blank">Get started</a></div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Thymeleaf</h5>
+        <h6 class="card-subtitle mb-2 text-muted">3.1.2.RELEASE</h6>
+        <p class="card-text text-left">Thymeleaf
+          is a
+          modern server-side Java template engine for both web and
+          standalone environments.
+
+          Thymeleaf's main goal is to bring elegant natural templates to your development workflow —
+          HTML that can be correctly displayed in browsers and also work as static prototypes,
+          allowing for stronger collaboration in development teams.
+
+          With modules for Spring Framework, a host of integrations with your favourite tools, and
+          the ability to plug in your own functionality, Thymeleaf is ideal for modern-day HTML5 JVM
+          web development — although there is much more it can do.</p>
+      </div>
+      <div class="card-footer"><a class="btn btn-lg btn-primary btn-block"
+                                  href="https://www.thymeleaf.org/"
+                                  target="_blank">Get started</a></div>
+    </div>
+  </div>
+</div>
+<div class="fixed-bottom text-center pb-2">© 2024 初冬十月</div>
 </body>
 </html>

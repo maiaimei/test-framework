@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>用户管理</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid p-0">
+  <div class="row m-0">
+    <div class="col-sm p-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/dashboard}">后台管理</a>
+        <div class="navbar-nav">
+          <a class="nav-link" th:href="@{/dashboard}">首页</a>
+          <a class="nav-link active" th:href="@{/user/list}">用户管理</a>
+          <a class="nav-link" th:href="@{/role/list}">角色管理</a>
+        </div>
+      </nav>
+    </div>
+    <div class="col-sm p-0">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-end">
+        <div class="navbar-nav">
+          <a class="nav-link" href="javascript:void(0)">欢迎您，<span
+              sec:authentication="name"></span></a>
+          <a class="nav-link" href="javascript:void(0)">个人中心</a>
+          <a class="nav-link" th:href="@{/update-password}">修改密码</a>
+          <a class="nav-link" th:href="@{/logout}">退出登录</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="container-fluid p-0">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div class="fixed-bottom text-center pb-2">© 2024 初冬十月</div>
+</body>
+</html>

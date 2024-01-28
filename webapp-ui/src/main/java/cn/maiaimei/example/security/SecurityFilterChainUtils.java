@@ -80,7 +80,7 @@ public final class SecurityFilterChainUtils {
             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
             .anyRequest().authenticated()
         )
-        .httpBasic(Customizer.withDefaults())
+        .httpBasic(AbstractHttpConfigurer::disable)
         .formLogin(form -> form
                 // 自定义登录页面。需要添加permitAll()和配置视图控制器，否则会报重定向的次数过多
                 .loginPage("/login").permitAll()
@@ -92,9 +92,9 @@ public final class SecurityFilterChainUtils {
             //.successHandler(new MySimpleUrlAuthenticationSuccessHandler())
             //.failureHandler()
         )
-        .logout(Customizer.withDefaults())
-        .rememberMe(Customizer.withDefaults())
-        .passwordManagement(Customizer.withDefaults())
+        //.logout(Customizer.withDefaults())
+        //.rememberMe(Customizer.withDefaults())
+        //.passwordManagement(Customizer.withDefaults())
         .csrf(AbstractHttpConfigurer::disable);
 
     return http.build();
