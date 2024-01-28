@@ -39,7 +39,9 @@
 </dependencies>
 ```
 
-启动应用，在浏览器访问应用会跳转登录页面，控制台会输出随机密码，用户名为 user
+启动应用，在浏览器访问应用会跳转登录页面。
+
+默认情况下，登录的用户名是 `user` ，密码则是项目启动时随机生成的字符串，可以从启动的控制台日志中看到默认密码：
 
 ```
 Using generated security password: 5c7bfa8a-c9e5-4611-86a2-2c3137921890
@@ -47,8 +49,22 @@ Using generated security password: 5c7bfa8a-c9e5-4611-86a2-2c3137921890
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 ```
 
+这个随机生成的密码，每次启动时都会变。对登录的用户名/密码进行配置，有三种不同的方式：
+
+- 在 application.properties 中进行配置
+
+```yaml
+spring:
+  security:
+    user:
+      name: guest
+      password: 12345
+```
+
+- 通过 Java 代码配置在内存中
+
 ```java
-//@Bean
+@Bean
 public UserDetailsService inMemoryUserDetailsService() {
     String password = UUID.randomUUID().toString();
     System.out.println();
@@ -65,17 +81,7 @@ public UserDetailsService inMemoryUserDetailsService() {
 }
 ```
 
-可以在 application.yml 中设置登录用户和密码
-
-```yaml
-spring:
-  security:
-    user:
-      name: guest
-      password: 12345
-```
-
-自定义认证逻辑
+- 通过 Java 从数据库中加载（自定义认证逻辑）。
 
 ## SecurityContextHolder
 

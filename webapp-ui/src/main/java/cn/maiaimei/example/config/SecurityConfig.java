@@ -1,10 +1,10 @@
 package cn.maiaimei.example.config;
 
-import cn.maiaimei.example.service.MyUserDetailsServiceImpl;
+import cn.maiaimei.example.security.MyUserDetailsServiceImpl;
+import cn.maiaimei.example.security.SecurityFilterChainUtils;
 import java.util.UUID;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,25 +23,10 @@ public class SecurityConfig {
 
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-    http
-        .authorizeHttpRequests((authorize) -> authorize
-            // 登录请求可以匿名访问
-            //.requestMatchers("/").permitAll()
-            // 其他请求必须授权后才能访问
-            .anyRequest().authenticated()
-        )
-        .httpBasic(Customizer.withDefaults())
-        .formLogin(Customizer.withDefaults());
-
-    return http.build();
+    return SecurityFilterChainUtils.securityFilterChain04(http);
   }
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-  }
-
-  @Bean
+  //@Bean
   public MyUserDetailsServiceImpl myUserDetailsServiceImpl() {
     return new MyUserDetailsServiceImpl();
   }
@@ -60,6 +45,11 @@ public class SecurityConfig {
         .password(password)
         .build();
     return new InMemoryUserDetailsManager(userDetails);
+  }
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
   }
 
 }

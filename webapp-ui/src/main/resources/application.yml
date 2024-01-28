@@ -7,7 +7,9 @@ spring:
     suffix: .html
   security:
     user:
-      name: guest
-      password: 12345
+      name: admin
+      password: $2a$10$d1U9uZLLiePh.3bqSexYxeYSbHaCUWcTiDV6klOeTLcp5rAz38aeW  # 12345
+      roles: admin
 
-api-service-base-url: http://localhost:8080
+api-service:
+  base-url: http://localhost:8080

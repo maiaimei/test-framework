@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.maiaimei.example</groupId>
-  <artifactId>webapp-ui</artifactId>
+  <artifactId>webapp-model</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>
@@ -21,29 +21,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>cn.maiaimei.example</groupId>
-      <artifactId>webapp-model</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-    <!-- https://docs.spring.io/spring-boot/docs/3.2.2/reference/htmlsingle/ -->
-    <!-- https://www.thymeleaf.org/ -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-thymeleaf</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
