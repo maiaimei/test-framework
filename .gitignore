@@ -46,3 +46,4 @@ coverage
 
 # python
 venv
+.pytest_cache
