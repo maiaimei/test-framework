@@ -28,29 +28,6 @@ Selenium的集成开发环境 ([Selenium IDE](https://selenium.dev/selenium-ide)
 </dependency>
 ```
 
-## Python+Selenium
-
-```shell
-pip install selenium 
-pip install webdriver-helper
-```
-
-webdriver-helper 是一个 python 第三方库，用来更加便捷的使用 selenium，完成浏览器自动化控制的辅助工具。
-
-因为 chrome 频繁自动更新，浏览器驱动随时可能失效，导致代码跑不起来。
-
-有了 webdriver-helper 就再也不用关心浏览器和浏览器驱动的匹配问题了。
-
-目前有两个版本：
-
-第一个是免费版，版本代号 1.*, 这个版本可以帮助你免去寻找、匹配、下载合适的浏览器驱动。
-
-```shell
-pip install webdriver-helper==1.*
-```
-
-第二个是付费版本，版本代号 2.*，是在免费版的基础上进行了改进和增强。
-
 ## Eight Basic Components
 
 Selenium所做的一切, 就是发送给浏览器命令, 用以执行某些操作或为信息发送请求。
